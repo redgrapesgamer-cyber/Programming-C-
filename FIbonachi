@@ -1,0 +1,70 @@
+Fibonachi Program! Use it to generate good numbers!
+
+
+
+
+
+#include <cstdio>
+#include <ctime>
+#include <cstdlib>
+#include <windows.h>
+
+#include <iostream>
+#include <random>
+
+using namespace std;
+
+long long int number = 0;
+int number_array[] = {1};
+int number_index = 1;
+
+
+int calculate() {
+    int perm_number = number+1;
+    for (int x=1; x<number+1; x++) { 
+            number_array[number_index] = x;
+            
+            number_index++;
+    }
+
+    number_index = 1;
+    number = 1;
+
+    for (int x=1; x<perm_number; x++) { 
+
+            number = number * number_index;
+            number_index++;
+    }
+
+    if (number < 0) {
+        
+        
+        cout << "ERROR"; cout << "Number: "; cout << number; cout << " Is below 0 due to integer overflow." << endl;
+        Sleep(1000); // Sleep for 5 seconds
+        return 0;
+    }
+
+
+    cout << "The Number Is :" << number << endl;
+    return number;
+    
+}
+
+int main(int nNumberofArgs, char* pszArgs[]) {
+    cout << "Please enter a number to turn it into a factorial :"; cin >> number; cout << endl;
+    if (number > 99) {
+        cout << "Sorry, it will break your PC!" << endl;
+        return 0;
+    }
+    calculate();
+    
+    return 0;
+    
+
+
+
+
+
+
+
+}
